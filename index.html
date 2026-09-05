@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teachers' Day 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeIn 2s;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 0.5s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .teacher-card .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .teacher-card h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .teacher-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .teachers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎉 Happy Teachers' Day 2026 🎉</h1>
+        <p>Hamare School ke 15 Superstars! 💫</p>
+        <p style="margin-top: 10px; font-size: 1rem;">❤️ Thank You for Everything! ❤️</p>
+    </div>
+
+    <div class="teachers-grid">
+        <!-- Teacher 1 -->
+        <div class="teacher-card" onclick="alert('Teacher 1 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 1</h3>
+            <p>Subject: Maths</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 2 -->
+        <div class="teacher-card" onclick="alert('Teacher 2 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 2</h3>
+            <p>Subject: Science</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 3 -->
+        <div class="teacher-card" onclick="alert('Teacher 3 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 3</h3>
+            <p>Subject: English</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 4 -->
+        <div class="teacher-card" onclick="alert('Teacher 4 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 4</h3>
+            <p>Subject: Hindi</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 5 -->
+        <div class="teacher-card" onclick="alert('Teacher 5 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 5</h3>
+            <p>Subject: Social Science</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 6 -->
+        <div class="teacher-card" onclick="alert('Teacher 6 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 6</h3>
+            <p>Subject: Computer</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 7 -->
+        <div class="teacher-card" onclick="alert('Teacher 7 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 7</h3>
+            <p>Subject: Physics</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 8 -->
+        <div class="teacher-card" onclick="alert('Teacher 8 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 8</h3>
+            <p>Subject: Chemistry</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 9 -->
+        <div class="teacher-card" onclick="alert('Teacher 9 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 9</h3>
+            <p>Subject: Biology</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 10 -->
+        <div class="teacher-card" onclick="alert('Teacher 10 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 10</h3>
+            <p>Subject: Physical Education</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 11 -->
+        <div class="teacher-card" onclick="alert('Teacher 11 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 11</h3>
+            <p>Subject: Art & Craft</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 12 -->
+        <div class="teacher-card" onclick="alert('Teacher 12 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 12</h3>
+            <p>Subject: Music</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 13 -->
+        <div class="teacher-card" onclick="alert('Teacher 13 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 13</h3>
+            <p>Subject: Sanskrit</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 14 -->
+        <div class="teacher-card" onclick="alert('Teacher 14 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Teacher 14</h3>
+            <p>Subject: Geography</p>
+            <span class="badge">Click for Details</span>
+        </div>
+
+        <!-- Teacher 15 -->
+        <div class="teacher-card" onclick="alert('Teacher 15 ka page jald aa raha hai! 😊')">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Teacher 15</h3>
+            <p>Subject: History</p>
+            <span class="badge">Click for Details</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: white; opacity: 0.8;">
+        <p>Made with ❤️ by Students</p>
+    </div>
+</body>
+</html>
