@@ -311,32 +311,6 @@
             box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
         }
 
-        .teacher-card .view-btn-simple {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-            padding: 9px 28px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .teacher-card .view-btn-simple:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .teacher-card .no-message {
-            color: #aaa;
-            font-size: 0.8rem;
-            font-style: italic;
-            margin: 4px 0 10px;
-        }
-
         /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
@@ -551,8 +525,7 @@
             .teacher-card .subject {
                 font-size: 0.75rem;
             }
-            .teacher-card .view-btn,
-            .teacher-card .view-btn-simple {
+            .teacher-card .view-btn {
                 padding: 7px 18px;
                 font-size: 0.75rem;
             }
@@ -623,8 +596,7 @@
             .teacher-card .subject {
                 font-size: 0.68rem;
             }
-            .teacher-card .view-btn,
-            .teacher-card .view-btn-simple {
+            .teacher-card .view-btn {
                 padding: 5px 14px;
                 font-size: 0.68rem;
             }
@@ -702,21 +674,20 @@
 </div>
 
 <script>
-    // ===== TEACHERS DATA =====
+    // ===== TEACHERS DATA - SABHI KE MESSAGE ADD KAR DIYE =====
     const teachers = [
         {
             name: "Shyam Sir",
             nickname: "Mr. Volcano 🌋",
             subject: "Accountant",
             img: "https://stxaviersrasepur.co.in/teachers/Shyam.jpeg",
-            hasMessage: false
+            message: `Dear Shyam Sir,\n\n**Mr. Volcano** — because when you speak, it feels like an eruption of energy and knowledge! 🌋😂 But honestly, behind all that fiery enthusiasm lies a teacher who genuinely cares about every student.\n\nYour passion for teaching and your unique way of explaining things make even the most boring topics feel interesting. You have this incredible ability to make students pay attention and actually enjoy learning. Thank you for being such a dynamic and inspiring presence in our school.\n\nWishing you a very Happy Teachers' Day, Shyam Sir! ❤️📚`
         },
         {
             name: "Brijesh Sir",
             nickname: "Sultan Sir 👑",
             subject: "Computer Science",
             img: "https://stxaviersrasepur.co.in/teachers/Brijesh.jpeg",
-            hasMessage: true,
             message: `Dear Brijesh Sir,\n\nWith you, a simple topic never remains simple for long! 😂 One minute we are studying, and the next minute we are laughing at one of your perfectly timed examples. Sometimes it feels like your class comes with a free comedy show! 👑😂\n\nBut honestly, that is what makes your teaching so memorable. You explain even difficult concepts with such creative and relatable examples that they become much easier to understand. Your friendly nature and the way you keep the classroom lively make learning feel less like a lesson and more like an experience.\n\nThank you for making us learn, laugh, and enjoy the process. Wishing you a very Happy Teachers' Day, Sultan Sir! ❤️📚`
         },
         {
@@ -724,7 +695,6 @@
             nickname: "📜 Kalidasa's Descendant",
             subject: "Hindi & Sanskrit",
             img: "https://stxaviersrasepur.co.in/teachers/Santosh.jpeg",
-            hasMessage: true,
             message: `Dear Santosh Sir,\n\nWith you, Sanskrit is never something we are simply asked to memorize! 😂 Your famous philosophy is basically, "Understand Sanskrit, don't just mug it up." But the way you tell stories, sometimes I genuinely wonder whether you studied with Kalidasa himself or sat beside Bhishma Pitamah on his chariot and watched the Mahabharata unfold! 😂🏹\n\nJokes apart, your way of teaching Sanskrit is truly special. You make us understand the meaning, logic, and beauty behind the language instead of just making us memorize answers. Your storytelling makes even ancient lessons feel alive and interesting.\n\nThank you for making Sanskrit something to understand, enjoy, and remember. Wishing you a very Happy Teachers' Day, Santosh Sir! ❤️📚`
         },
         {
@@ -732,7 +702,6 @@
             nickname: "Maths Katha Vachak 📖",
             subject: "Maths & EVS",
             img: "https://stxaviersrasepur.co.in/teachers/Kamalesh.jpeg",
-            hasMessage: true,
             message: `Dear Kamlesh Sir,\n\nI still wonder how you manage to find a relative for almost every situation! 😂 No matter what topic we discuss, somehow one of your relatives has already been there! Sometimes your stories feel like we are attending a family reunion instead of a Maths class. 😂\n\nBut jokes apart, your approach to teaching is genuinely amazing. You have a unique way of explaining Maths that makes even difficult concepts feel simple and interesting. Honestly, because of you, Maths became something I could understand, enjoy, and eventually love. ❤️\n\nThank you for making numbers feel less scary and learning feel more enjoyable. Wishing you a very Happy Teachers' Day, Kamlesh Sir! 📚❤️`
         },
         {
@@ -740,7 +709,6 @@
             nickname: "The Mountain Climber Coach 🏔️",
             subject: "Maths & Science",
             img: "https://stxaviersrasepur.co.in/teachers/Ajay.jpeg",
-            hasMessage: true,
             message: `Dear Ajay Sir,\n\nThey say you teach Science, but sometimes it feels like you are secretly running a motivation centre! 😂 Your practicals are so engaging that even a sleepy student suddenly becomes a scientist. And once you start motivating us, honestly, you could convince a person to climb a mountain without asking why! 🏔️😂\n\nJokes apart, your practical way of teaching makes learning much more interesting and memorable. More than that, your motivation, positivity, and the way you encourage students make you truly special. You are not just teaching us subjects; you are teaching us to believe in ourselves.\n\nWishing you a very Happy Teachers' Day, Ajay Sir! ❤️📚`
         },
         {
@@ -748,21 +716,20 @@
             nickname: "ChatGPT ke Fufa 🤖",
             subject: "Maths",
             img: "https://stxaviersrasepur.co.in/teachers/Vishal.jpeg",
-            hasMessage: false
+            message: `Dear Vishal Sir,\n\n**ChatGPT's Fufa** — that nickname itself says enough! 😂 Whenever there is something related to AI, technology, or finding an answer, somehow you seem to have a connection with ChatGPT! 🤖😂\n\nAlthough I have not studied with you directly in a classroom, I have still learned a lot from your approach, your knowledge, and the way you encourage students to explore new things. Your interest in technology and your modern way of thinking make you stand out.\n\nThank you for being someone from whom we can learn even outside a classroom. Wishing you a very Happy Teachers' Day, Vishal Sir! ❤️🤖📚`
         },
         {
             name: "Rampravesh Sir",
             nickname: "Silent Shakespeare 🎭",
             subject: "English",
             img: "https://stxaviersrasepur.co.in/teachers/Rampravesh.jpeg",
-            hasMessage: false
+            message: `Dear Rampravesh Sir,\n\n**Silent Shakespeare** — probably the perfect nickname for you! 😂 You can stay so calm and quiet that sometimes we wonder whether the class is actually happening or we have entered a library! 🤫📚😂\n\nAlthough I have not studied with you directly, your calm personality and the way you carry yourself have always left a positive impression. Your approach teaches us that a teacher does not always need to be loud to make an impact.\n\nThank you for being such a peaceful and dignified presence in school. Wishing you a very Happy Teachers' Day, Rampravesh Sir! ❤️📚`
         },
         {
             name: "Maya Ma'am",
             nickname: "Art Attack Ma'am 🎨",
             subject: "Class Teacher LKG & Art & Craft",
             img: "https://stxaviersrasepur.co.in/teachers/Maya.jpeg",
-            hasMessage: true,
             message: `Dear Maya Ma'am,\n\nYou are probably the only person who can combine caring, crafting, and constantly asking for a party all at once! 😂 Whenever there is a celebration, somehow the conversation eventually reaches one question: "So, when is the party?" 😂🎉\n\nBut jokes apart, your caring nature makes you truly special. You always make students feel comfortable, supported, and looked after. And with your creativity and love for craft, you have a wonderful way of turning simple things into something beautiful. Your kindness and cheerful nature make the school environment warmer and happier.\n\nThank you for always caring, creating, and of course, reminding us about that legendary party! 😂❤️\n\nWishing you a very Happy Teachers' Day, Maya Ma'am! 🌸🎨`
         },
         {
@@ -770,7 +737,6 @@
             nickname: "Ma'am FM 24×7 📢",
             subject: "Office Work",
             img: "https://stxaviersrasepur.co.in/teachers/Priyanka.jpeg",
-            hasMessage: true,
             message: `Dear Priyanka Ma'am,\n\nYour voice has always had one special superpower — it could easily make sure that nobody else's voice was heard! 😂 Sometimes I wondered whether you were speaking to us or addressing the entire school! 📢😂\n\nJokes apart, even though I never had the opportunity to study with you in a classroom, I have still learned something very valuable from you — a positive approach towards things. Your cheerful nature, your ability to make people laugh, and the positivity you brought wherever you were made you truly memorable. ❤️\n\nIt honestly feels a little strange knowing that you are leaving. The school will definitely miss your energy, laughter, and that unforgettable voice!\n\nThank you for the smiles and positivity. Wishing you a very Happy Teachers' Day and all the very best for your next journey! ❤️🌸`
         },
         {
@@ -778,7 +744,6 @@
             nickname: "Breaking News Ma'am 📋",
             subject: "Nursery to 1 Coordinator",
             img: "https://stxaviersrasepur.co.in/teachers/Khushboo.jpeg",
-            hasMessage: true,
             message: `Dear Khushboo Ma'am,\n\nI sometimes wonder if you secretly run the school's official Complaint Department! 😂 Somehow, every little incident eventually finds its way to you. If something happens, we already know there is a very good chance that Ma'am will know about it! 📋😂\n\nBut jokes apart, your strictness and constant attention to discipline have taught us something genuinely important. You make us understand that being responsible, punctual, respectful, and disciplined matters just as much as studying from books. Behind every complaint, there is actually a lesson about doing better.\n\nThank you for keeping us disciplined and reminding us to be responsible. Wishing you a very Happy Teachers' Day, Khushboo Ma'am! ❤️📚`
         },
         {
@@ -786,14 +751,13 @@
             nickname: "The Troubled Teacher 😅",
             subject: "Class Teacher 1",
             img: "https://stxaviersrasepur.co.in/teachers/Seema.jpeg",
-            hasMessage: false
+            message: `Dear Seema Ma'am,\n\n**The Troubled Teacher** — because it sometimes feels like the students have made teaching a full-time adventure! 😂 But honestly, behind all that trouble is a teacher who keeps showing patience, care, and dedication.\n\nEven though I have not studied with you directly, I have always appreciated your approach towards students and the way you handle your responsibilities. Every teacher has a different way of teaching, and every interaction gives us something different to learn.\n\nThank you for being a part of our school journey and for everything you contribute. Wishing you a very Happy Teachers' Day, Seema Ma'am! ❤️🌸📚`
         },
         {
             name: "Arti Ma'am",
             nickname: "Skinny Legend 💃",
             subject: "English",
             img: "https://stxaviersrasepur.co.in/teachers/Arti.jpeg",
-            hasMessage: true,
             message: `Dear Arti Ma'am,\n\nYou are always so serious about students following rules, but there is one rule I think you should follow too — please take care of your own diet! 😂 You keep reminding everyone to be disciplined, while your own diet seems to be waiting for some discipline! 😭😂\n\nJokes apart, your strictness comes from a place of genuine care. You always want your students to improve, stay disciplined, and develop good habits. So this Teachers' Day, our little request is: please give yourself the same care and attention that you give to your students. ❤️\n\nThank you for always guiding us and looking out for us. Wishing you a very Happy Teachers' Day, Arti Ma'am! 🌸❤️`
         },
         {
@@ -801,21 +765,21 @@
             nickname: "Zen Zenz 🧘",
             subject: "Class Teacher UKG",
             img: "https://stxaviersrasepur.co.in/teachers/Nidhi.jpeg",
-            hasMessage: false
+            message: `Dear Nidhi Ma'am,\n\nI may not have been your student in the classroom, but Teachers' Day is a reminder that a teacher's impact is not limited to the students they directly teach. Your presence, efforts, and dedication are all part of what makes a school a place of learning.\n\nYour calm and composed nature is truly inspiring! You have this unique ability to bring peace to the classroom, even when things get chaotic. Your gentle approach and kind words make every student feel valued and heard. 🌸\n\nThank you for being a part of our journey. Wishing you a very Happy Teachers' Day, Nidhi Ma'am! ❤️📚`
         },
         {
             name: "Jigyasa Miss",
             nickname: "Zen-Zb 🧘‍♀️",
             subject: "Class Teacher UKG",
             img: "https://stxaviersrasepur.co.in/teachers/Jigyasa.jpeg",
-            hasMessage: false
+            message: `Dear Jigyasa Ma'am,\n\nEven though I have not studied with you directly, I am still happy to have you as a part of our school community. Every teacher has their own way of contributing, guiding, and inspiring, and that deserves appreciation.\n\nYour curiosity is truly contagious! 🔥 Your name itself means "curiosity," and you live up to it in every way. You have a way of making students curious about learning, about life, and about themselves.\n\nThank you for being a part of our journey. Wishing you a very Happy Teachers' Day, Jigyasa Ma'am! ❤️🌸`
         },
         {
             name: "Ankita Ma'am",
             nickname: "Busy Mode ON 📱",
             subject: "Class Teacher Nursery",
             img: "https://stxaviersrasepur.co.in/teachers/Ankita.jpeg",
-            hasMessage: false
+            message: `Dear Ankita Ma'am,\n\nAlthough I have not had the opportunity to study with you directly, I still truly appreciate the presence and contribution you make to our school. Every teacher adds something valuable to the environment around us, and you are an important part of that journey.\n\nYou are always on the go! 📱 Whether it's teaching, guiding, or managing multiple things at once, you handle everything with grace and efficiency. Your dedication to teaching and your ability to simplify complex concepts is truly impressive.\n\nThank you for everything you do. Wishing you a very Happy Teachers' Day, Ankita Ma'am! ❤️🌸`
         }
     ];
 
@@ -834,22 +798,12 @@
                    <div class="teacher-img-fallback" style="display:none;">👨‍🏫</div>`
                 : `<div class="teacher-img-fallback">👨‍🏫</div>`;
 
-            let buttonHtml;
-            if (teacher.hasMessage) {
-                buttonHtml = `<button class="view-btn" onclick="openModal(${index})">📖 View Message</button>`;
-            } else {
-                buttonHtml = `
-                    <div class="no-message">❤️ Wishing you a Happy Teachers' Day from heart ❤️</div>
-                    <button class="view-btn-simple" onclick="openModal(${index})">👀 View Profile</button>
-                `;
-            }
-
             card.innerHTML = `
                 ${imgHtml}
                 <h3>${teacher.name}</h3>
                 <div class="nickname">${teacher.nickname}</div>
                 <div class="subject">${teacher.subject}</div>
-                ${buttonHtml}
+                <button class="view-btn" onclick="openModal(${index})">📖 View Message</button>
             `;
 
             grid.appendChild(card);
@@ -867,25 +821,12 @@
                <div class="modal-img-fallback" style="display:none;">👨‍🏫</div>`
             : `<div class="modal-img-fallback">👨‍🏫</div>`;
 
-        let msgHtml;
-        if (teacher.hasMessage) {
-            msgHtml = `<div class="modal-msg">${teacher.message.replace(/\n/g, '<br>')}</div>`;
-        } else {
-            msgHtml = `
-                <div class="modal-msg" style="text-align:center;font-size:1.1rem;border-left-color:#667eea;">
-                    ❤️ Wishing you a very Happy Teachers' Day from the bottom of our hearts! ❤️<br><br>
-                    Thank you for being an amazing teacher and for all that you do. 🙏<br><br>
-                    <span style="color:#ffd700;">Happy Teachers' Day! 🎉📚</span>
-                </div>
-            `;
-        }
-
         body.innerHTML = `
             ${imgHtml}
             <h2>${teacher.name}</h2>
             <div class="modal-nick">${teacher.nickname}</div>
             <div class="modal-subject">${teacher.subject}</div>
-            ${msgHtml}
+            <div class="modal-msg">${teacher.message.replace(/\n/g, '<br>')}</div>
         `;
 
         overlay.classList.add('active');
