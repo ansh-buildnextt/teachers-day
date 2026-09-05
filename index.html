@@ -14,9 +14,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         /* ===== SURPRISE OVERLAY ===== */
@@ -26,13 +26,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.92);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            backdrop-filter: blur(8px);
-            animation: fadeInOverlay 1s ease;
+            backdrop-filter: blur(12px);
+            animation: fadeInOverlay 0.8s ease;
         }
 
         #surprise-overlay.hidden {
@@ -41,42 +41,65 @@
 
         .surprise-box {
             background: linear-gradient(145deg, #ff6b6b, #ee5a24);
-            padding: 50px 60px;
+            padding: 40px 50px;
             border-radius: 30px;
             text-align: center;
             box-shadow: 0 30px 80px rgba(238, 90, 36, 0.4);
-            animation: bounceIn 1s ease;
-            max-width: 90%;
+            animation: bounceIn 0.8s ease;
+            max-width: 92%;
             border: 3px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,215,0,0.1), transparent, rgba(255,215,0,0.1), transparent);
+            animation: rotateBg 4s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            100% { transform: rotate(360deg); }
+        }
+
+        .surprise-box * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .surprise-box .emoji-big {
+            font-size: 4.5rem;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .surprise-box h1 {
             color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.3;
         }
 
         .surprise-box p {
             color: #fff;
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .surprise-box .emoji-big {
-            font-size: 5rem;
-            display: block;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
         }
 
         .surprise-btn {
             background: #ffd700;
             color: #1a1a2e;
             border: none;
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            font-weight: bold;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            font-weight: 800;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -92,41 +115,42 @@
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
-            padding: 30px 20px 10px;
+            margin-bottom: 20px;
+            padding: 20px 15px 5px;
             animation: fadeIn 1.5s ease;
         }
 
         .header h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 900;
-            background: linear-gradient(to right, #ffd700, #ff6b6b, #ffd700);
-            background-size: 200% auto;
+            background: linear-gradient(to right, #ffd700, #ff6b6b, #ffd700, #ff6b6b);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-            text-shadow: none;
+            animation: shimmer 4s linear infinite;
             letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         .header .sub-heading {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #a8d8ea;
-            margin-top: 5px;
+            margin-top: 3px;
             -webkit-text-fill-color: #a8d8ea;
         }
 
         .header .message-box {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px 30px;
-            max-width: 850px;
-            margin: 20px auto 0;
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            padding: 20px 22px;
+            max-width: 900px;
+            margin: 15px auto 0;
+            border: 1px solid rgba(255,255,255,0.08);
             text-align: left;
             line-height: 1.8;
             -webkit-text-fill-color: #e0e0e0;
+            font-size: 0.95rem;
         }
 
         .header .message-box .highlight {
@@ -136,11 +160,11 @@
         }
 
         .header .message-box .disclaimer {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #ff9a76;
             font-style: italic;
             margin-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.08);
             padding-top: 10px;
             -webkit-text-fill-color: #ff9a76;
         }
@@ -150,14 +174,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin: 15px 0 10px;
+            gap: 12px;
+            margin: 10px 0 8px;
             flex-wrap: wrap;
         }
 
         .dp-section .dp-img {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 3px solid #ffd700;
             object-fit: cover;
@@ -166,7 +190,7 @@
 
         .dp-section .dp-name {
             color: white;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             -webkit-text-fill-color: white;
         }
@@ -174,56 +198,56 @@
         /* ===== TEACHERS GRID ===== */
         .teachers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .teacher-card {
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 25px 20px 20px;
+            border-radius: 22px;
+            padding: 22px 16px 18px;
             text-align: center;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
             animation: slideUp 0.6s ease forwards;
             opacity: 0;
         }
 
-        .teacher-card:nth-child(1) { animation-delay: 0.1s; }
-        .teacher-card:nth-child(2) { animation-delay: 0.15s; }
-        .teacher-card:nth-child(3) { animation-delay: 0.2s; }
-        .teacher-card:nth-child(4) { animation-delay: 0.25s; }
-        .teacher-card:nth-child(5) { animation-delay: 0.3s; }
-        .teacher-card:nth-child(6) { animation-delay: 0.35s; }
-        .teacher-card:nth-child(7) { animation-delay: 0.4s; }
-        .teacher-card:nth-child(8) { animation-delay: 0.45s; }
-        .teacher-card:nth-child(9) { animation-delay: 0.5s; }
-        .teacher-card:nth-child(10) { animation-delay: 0.55s; }
-        .teacher-card:nth-child(11) { animation-delay: 0.6s; }
-        .teacher-card:nth-child(12) { animation-delay: 0.65s; }
-        .teacher-card:nth-child(13) { animation-delay: 0.7s; }
-        .teacher-card:nth-child(14) { animation-delay: 0.75s; }
-        .teacher-card:nth-child(15) { animation-delay: 0.8s; }
+        .teacher-card:nth-child(1) { animation-delay: 0.05s; }
+        .teacher-card:nth-child(2) { animation-delay: 0.1s; }
+        .teacher-card:nth-child(3) { animation-delay: 0.15s; }
+        .teacher-card:nth-child(4) { animation-delay: 0.2s; }
+        .teacher-card:nth-child(5) { animation-delay: 0.25s; }
+        .teacher-card:nth-child(6) { animation-delay: 0.3s; }
+        .teacher-card:nth-child(7) { animation-delay: 0.35s; }
+        .teacher-card:nth-child(8) { animation-delay: 0.4s; }
+        .teacher-card:nth-child(9) { animation-delay: 0.45s; }
+        .teacher-card:nth-child(10) { animation-delay: 0.5s; }
+        .teacher-card:nth-child(11) { animation-delay: 0.55s; }
+        .teacher-card:nth-child(12) { animation-delay: 0.6s; }
+        .teacher-card:nth-child(13) { animation-delay: 0.65s; }
+        .teacher-card:nth-child(14) { animation-delay: 0.7s; }
+        .teacher-card:nth-child(15) { animation-delay: 0.75s; }
 
         .teacher-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 215, 0, 0.4);
-            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.15);
-            background: rgba(255,255,255,0.12);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.12);
+            background: rgba(255,255,255,0.1);
         }
 
         .teacher-card .teacher-img {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 15px;
-            border: 4px solid rgba(255, 215, 0, 0.3);
+            margin: 0 auto 12px;
+            border: 4px solid rgba(255, 215, 0, 0.25);
             transition: all 0.4s ease;
             background: #2a2a4a;
         }
@@ -234,63 +258,83 @@
         }
 
         .teacher-card .teacher-img-fallback {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: 3rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            border: 4px solid rgba(255, 215, 0, 0.3);
+            border: 4px solid rgba(255, 215, 0, 0.25);
         }
 
         .teacher-card h3 {
             color: #ffffff;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .teacher-card .nickname {
             color: #ffd700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 4px;
-            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            letter-spacing: 0.3px;
         }
 
         .teacher-card .subject {
             color: #a8d8ea;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
         }
 
         .teacher-card .view-btn {
             display: inline-block;
             background: linear-gradient(135deg, #ffd700, #f7971e);
             color: #1a1a2e;
-            padding: 10px 30px;
+            padding: 9px 28px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.15);
         }
 
         .teacher-card .view-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .teacher-card .view-btn-simple {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 9px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .teacher-card .view-btn-simple:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
         }
 
         .teacher-card .no-message {
             color: #aaa;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-style: italic;
-            margin: 5px 0 10px;
+            margin: 4px 0 10px;
         }
 
         /* ===== MODAL ===== */
@@ -300,14 +344,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(12px);
             z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            animation: fadeInOverlay 0.5s ease;
+            padding: 15px;
+            animation: fadeInOverlay 0.4s ease;
         }
 
         .modal-overlay.active {
@@ -316,28 +360,30 @@
 
         .modal-content {
             background: linear-gradient(145deg, #1a1a2e, #16213e);
-            border-radius: 30px;
-            max-width: 600px;
+            border-radius: 28px;
+            max-width: 580px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 92vh;
             overflow-y: auto;
-            padding: 35px 30px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            animation: modalPop 0.5s ease;
+            padding: 30px 25px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            animation: modalPop 0.4s ease;
             position: relative;
         }
 
         .modal-content .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
+            position: sticky;
+            top: 0;
+            float: right;
+            font-size: 1.8rem;
             color: #ff6b6b;
             cursor: pointer;
             background: none;
             border: none;
             transition: transform 0.3s ease;
+            z-index: 10;
+            padding: 0 5px;
         }
 
         .modal-content .close-modal:hover {
@@ -345,50 +391,58 @@
         }
 
         .modal-content .modal-img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
             border: 4px solid #ffd700;
             display: block;
         }
 
         .modal-content .modal-img-fallback {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: 3rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
             border: 4px solid #ffd700;
         }
 
         .modal-content h2 {
             color: #ffd700;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             text-align: center;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .modal-content .modal-nick {
             color: #f7971e;
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .modal-content .modal-subject {
+            color: #a8d8ea;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            opacity: 0.8;
         }
 
         .modal-content .modal-msg {
-            color: #e0e0e0;
-            line-height: 1.9;
-            font-size: 1rem;
+            color: #e8e8e8;
+            line-height: 2;
+            font-size: 0.95rem;
             white-space: pre-wrap;
             background: rgba(255,255,255,0.04);
-            padding: 18px 20px;
-            border-radius: 16px;
+            padding: 16px 18px;
+            border-radius: 14px;
             border-left: 4px solid #ffd700;
         }
 
@@ -399,11 +453,11 @@
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            color: rgba(255,255,255,0.5);
-            padding: 30px 0 15px;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 30px;
+            color: rgba(255,255,255,0.4);
+            padding: 25px 0 10px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            margin-top: 25px;
         }
 
         .footer strong {
@@ -430,7 +484,7 @@
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(35px);
             }
             to {
                 opacity: 1;
@@ -440,17 +494,17 @@
 
         @keyframes shimmer {
             0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            100% { background-position: 300% center; }
         }
 
         @keyframes modalPop {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            0% { transform: scale(0.85) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
 
         /* ===== SCROLLBAR ===== */
         .modal-content::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
         }
         .modal-content::-webkit-scrollbar-track {
             background: #1a1a2e;
@@ -463,52 +517,49 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
+            body { padding: 10px; }
+            
             .header h1 {
                 font-size: 2rem;
             }
             .header .message-box {
-                padding: 15px;
-                font-size: 0.9rem;
+                padding: 14px 16px;
+                font-size: 0.85rem;
+                line-height: 1.7;
+                border-radius: 14px;
             }
             .teachers-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             .teacher-card {
-                padding: 18px 12px;
+                padding: 16px 10px 14px;
+                border-radius: 18px;
             }
             .teacher-card .teacher-img,
             .teacher-card .teacher-img-fallback {
-                width: 90px;
-                height: 90px;
-                font-size: 2.5rem;
+                width: 85px;
+                height: 85px;
+                font-size: 2.2rem;
             }
             .teacher-card h3 {
                 font-size: 1rem;
             }
+            .teacher-card .nickname {
+                font-size: 0.78rem;
+            }
+            .teacher-card .subject {
+                font-size: 0.75rem;
+            }
+            .teacher-card .view-btn,
+            .teacher-card .view-btn-simple {
+                padding: 7px 18px;
+                font-size: 0.75rem;
+            }
             .surprise-box {
-                padding: 30px 20px;
+                padding: 28px 20px;
             }
             .surprise-box h1 {
-                font-size: 1.8rem;
-            }
-            .modal-content {
-                padding: 25px 18px;
-            }
-            .modal-content h2 {
-                font-size: 1.4rem;
-            }
-            .dp-section .dp-img {
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .teachers-grid {
-                grid-template-columns: 1fr;
-            }
-            .header h1 {
                 font-size: 1.6rem;
             }
             .surprise-box .emoji-big {
@@ -517,6 +568,75 @@
             .surprise-btn {
                 padding: 14px 30px;
                 font-size: 1rem;
+            }
+            .modal-content {
+                padding: 22px 16px;
+                border-radius: 22px;
+            }
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+            .modal-content .modal-img,
+            .modal-content .modal-img-fallback {
+                width: 85px;
+                height: 85px;
+                font-size: 2.5rem;
+            }
+            .modal-content .modal-msg {
+                font-size: 0.88rem;
+                padding: 14px 14px;
+                line-height: 1.9;
+            }
+            .dp-section .dp-img {
+                width: 48px;
+                height: 48px;
+            }
+            .dp-section .dp-name {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .teachers-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .teacher-card {
+                padding: 12px 8px 10px;
+                border-radius: 14px;
+            }
+            .teacher-card .teacher-img,
+            .teacher-card .teacher-img-fallback {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            .teacher-card h3 {
+                font-size: 0.85rem;
+            }
+            .teacher-card .nickname {
+                font-size: 0.7rem;
+            }
+            .teacher-card .subject {
+                font-size: 0.68rem;
+            }
+            .teacher-card .view-btn,
+            .teacher-card .view-btn-simple {
+                padding: 5px 14px;
+                font-size: 0.68rem;
+            }
+            .modal-content .modal-msg {
+                font-size: 0.82rem;
+                padding: 12px 12px;
+            }
+            .surprise-box {
+                padding: 20px 15px;
+            }
+            .surprise-box h1 {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -587,107 +707,115 @@
         {
             name: "Shyam Sir",
             nickname: "Mr. Volcano 🌋",
-            subject: "Physics",
+            subject: "Accountant",
             img: "https://stxaviersrasepur.co.in/teachers/Shyam.jpeg",
-            message: `Dear Shyam Sir,\n\nThey say a volcano erupts with fire and energy — but you erupt with knowledge, motivation, and an electrifying presence that makes every class unforgettable! ⚡🔥\n\nYour energy is contagious, and the way you explain concepts makes even the most complex topics feel simple. You don't just teach us Physics; you make us feel the force, motion, and energy in everything around us. Your enthusiasm pushes us to go beyond our limits and never give up. 💪\n\nThank you for being the spark that ignites curiosity in all of us. Wishing you a very Happy Teachers' Day, Mr. Volcano! ❤️📚`
+            hasMessage: false
         },
         {
             name: "Brijesh Sir",
             nickname: "Sultan Sir 👑",
-            subject: "English",
+            subject: "Computer Science",
             img: "https://stxaviersrasepur.co.in/teachers/Brijesh.jpeg",
+            hasMessage: true,
             message: `Dear Brijesh Sir,\n\nWith you, a simple topic never remains simple for long! 😂 One minute we are studying, and the next minute we are laughing at one of your perfectly timed examples. Sometimes it feels like your class comes with a free comedy show! 👑😂\n\nBut honestly, that is what makes your teaching so memorable. You explain even difficult concepts with such creative and relatable examples that they become much easier to understand. Your friendly nature and the way you keep the classroom lively make learning feel less like a lesson and more like an experience.\n\nThank you for making us learn, laugh, and enjoy the process. Wishing you a very Happy Teachers' Day, Sultan Sir! ❤️📚`
         },
         {
             name: "Santosh Sir",
             nickname: "📜 Kalidasa's Descendant",
-            subject: "Sanskrit",
+            subject: "Hindi & Sanskrit",
             img: "https://stxaviersrasepur.co.in/teachers/Santosh.jpeg",
+            hasMessage: true,
             message: `Dear Santosh Sir,\n\nWith you, Sanskrit is never something we are simply asked to memorize! 😂 Your famous philosophy is basically, "Understand Sanskrit, don't just mug it up." But the way you tell stories, sometimes I genuinely wonder whether you studied with Kalidasa himself or sat beside Bhishma Pitamah on his chariot and watched the Mahabharata unfold! 😂🏹\n\nJokes apart, your way of teaching Sanskrit is truly special. You make us understand the meaning, logic, and beauty behind the language instead of just making us memorize answers. Your storytelling makes even ancient lessons feel alive and interesting.\n\nThank you for making Sanskrit something to understand, enjoy, and remember. Wishing you a very Happy Teachers' Day, Santosh Sir! ❤️📚`
         },
         {
             name: "Kamlesh Sir",
             nickname: "Maths Katha Vachak 📖",
-            subject: "Mathematics",
+            subject: "Maths & EVS",
             img: "https://stxaviersrasepur.co.in/teachers/Kamalesh.jpeg",
+            hasMessage: true,
             message: `Dear Kamlesh Sir,\n\nI still wonder how you manage to find a relative for almost every situation! 😂 No matter what topic we discuss, somehow one of your relatives has already been there! Sometimes your stories feel like we are attending a family reunion instead of a Maths class. 😂\n\nBut jokes apart, your approach to teaching is genuinely amazing. You have a unique way of explaining Maths that makes even difficult concepts feel simple and interesting. Honestly, because of you, Maths became something I could understand, enjoy, and eventually love. ❤️\n\nThank you for making numbers feel less scary and learning feel more enjoyable. Wishing you a very Happy Teachers' Day, Kamlesh Sir! 📚❤️`
         },
         {
             name: "Ajay Sir",
             nickname: "The Mountain Climber Coach 🏔️",
-            subject: "Science",
+            subject: "Maths & Science",
             img: "https://stxaviersrasepur.co.in/teachers/Ajay.jpeg",
+            hasMessage: true,
             message: `Dear Ajay Sir,\n\nThey say you teach Science, but sometimes it feels like you are secretly running a motivation centre! 😂 Your practicals are so engaging that even a sleepy student suddenly becomes a scientist. And once you start motivating us, honestly, you could convince a person to climb a mountain without asking why! 🏔️😂\n\nJokes apart, your practical way of teaching makes learning much more interesting and memorable. More than that, your motivation, positivity, and the way you encourage students make you truly special. You are not just teaching us subjects; you are teaching us to believe in ourselves.\n\nWishing you a very Happy Teachers' Day, Ajay Sir! ❤️📚`
         },
         {
             name: "Vishal Sir",
             nickname: "ChatGPT ke Fufa 🤖",
-            subject: "Computer Science",
+            subject: "Maths",
             img: "https://stxaviersrasepur.co.in/teachers/Vishal.jpeg",
-            message: `Dear Vishal Sir,\n\nIf ChatGPT had a relative, it would definitely be you! 😂 You know everything about technology, computers, and the digital world — and you explain it with such ease that we feel like tech experts ourselves! 💻🤖\n\nYour practical knowledge and real-world examples make Computer Science so much more interesting. You don't just teach us how to code; you teach us how to think like problem-solvers. Your classes are always full of energy, and your ability to simplify complex tech concepts is truly remarkable.\n\nThank you for making technology feel accessible and exciting. Wishing you a very Happy Teachers' Day, Vishal Sir! ❤️📚`
+            hasMessage: false
         },
         {
             name: "Rampravesh Sir",
             nickname: "Silent Shakespeare 🎭",
-            subject: "Hindi",
+            subject: "English",
             img: "https://stxaviersrasepur.co.in/teachers/Rampravesh.jpeg",
-            message: `Dear Rampravesh Sir,\n\nThey say words have power, and you prove it with every single word you speak! 🎭 Your deep knowledge of Hindi literature is truly impressive. Sometimes you remain quiet and observe, but when you speak, it feels like poetry flows straight from the heart. 📜\n\nYour teaching style is unique — simple, yet profound. You make us appreciate the beauty of language, literature, and expression. Even a simple lesson becomes a meaningful conversation when you teach.\n\nThank you for showing us the beauty of words and silence alike. Wishing you a very Happy Teachers' Day, Rampravesh Sir! ❤️📚`
+            hasMessage: false
         },
         {
             name: "Maya Ma'am",
             nickname: "Art Attack Ma'am 🎨",
-            subject: "Art & Craft",
+            subject: "Class Teacher LKG & Art & Craft",
             img: "https://stxaviersrasepur.co.in/teachers/Maya.jpeg",
+            hasMessage: true,
             message: `Dear Maya Ma'am,\n\nYou are probably the only person who can combine caring, crafting, and constantly asking for a party all at once! 😂 Whenever there is a celebration, somehow the conversation eventually reaches one question: "So, when is the party?" 😂🎉\n\nBut jokes apart, your caring nature makes you truly special. You always make students feel comfortable, supported, and looked after. And with your creativity and love for craft, you have a wonderful way of turning simple things into something beautiful. Your kindness and cheerful nature make the school environment warmer and happier.\n\nThank you for always caring, creating, and of course, reminding us about that legendary party! 😂❤️\n\nWishing you a very Happy Teachers' Day, Maya Ma'am! 🌸🎨`
         },
         {
             name: "Priyanka Ma'am",
             nickname: "Ma'am FM 24×7 📢",
-            subject: "English",
+            subject: "Office Work",
             img: "https://stxaviersrasepur.co.in/teachers/Priyanka.jpeg",
+            hasMessage: true,
             message: `Dear Priyanka Ma'am,\n\nYour voice has always had one special superpower — it could easily make sure that nobody else's voice was heard! 😂 Sometimes I wondered whether you were speaking to us or addressing the entire school! 📢😂\n\nJokes apart, even though I never had the opportunity to study with you in a classroom, I have still learned something very valuable from you — a positive approach towards things. Your cheerful nature, your ability to make people laugh, and the positivity you brought wherever you were made you truly memorable. ❤️\n\nIt honestly feels a little strange knowing that you are leaving. The school will definitely miss your energy, laughter, and that unforgettable voice!\n\nThank you for the smiles and positivity. Wishing you a very Happy Teachers' Day and all the very best for your next journey! ❤️🌸`
         },
         {
             name: "Khushboo Ma'am",
             nickname: "Breaking News Ma'am 📋",
-            subject: "Discipline",
+            subject: "Nursery to 1 Coordinator",
             img: "https://stxaviersrasepur.co.in/teachers/Khushboo.jpeg",
+            hasMessage: true,
             message: `Dear Khushboo Ma'am,\n\nI sometimes wonder if you secretly run the school's official Complaint Department! 😂 Somehow, every little incident eventually finds its way to you. If something happens, we already know there is a very good chance that Ma'am will know about it! 📋😂\n\nBut jokes apart, your strictness and constant attention to discipline have taught us something genuinely important. You make us understand that being responsible, punctual, respectful, and disciplined matters just as much as studying from books. Behind every complaint, there is actually a lesson about doing better.\n\nThank you for keeping us disciplined and reminding us to be responsible. Wishing you a very Happy Teachers' Day, Khushboo Ma'am! ❤️📚`
         },
         {
             name: "Seema Ma'am",
             nickname: "The Troubled Teacher 😅",
-            subject: "Science",
+            subject: "Class Teacher 1",
             img: "https://stxaviersrasepur.co.in/teachers/Seema.jpeg",
-            message: `Wishing you a very Happy Teachers' Day, Seema Ma'am! ❤️📚\n\nYou have always been a wonderful teacher who cares deeply about your students. Your dedication and hard work do not go unnoticed. Thank you for all the effort you put into making sure we understand and learn. 🙏\n\nMay your day be filled with joy, appreciation, and the love you deserve! 🌸`
+            hasMessage: false
         },
         {
             name: "Arti Ma'am",
             nickname: "Skinny Legend 💃",
-            subject: "Science",
+            subject: "English",
             img: "https://stxaviersrasepur.co.in/teachers/Arti.jpeg",
+            hasMessage: true,
             message: `Dear Arti Ma'am,\n\nYou are always so serious about students following rules, but there is one rule I think you should follow too — please take care of your own diet! 😂 You keep reminding everyone to be disciplined, while your own diet seems to be waiting for some discipline! 😭😂\n\nJokes apart, your strictness comes from a place of genuine care. You always want your students to improve, stay disciplined, and develop good habits. So this Teachers' Day, our little request is: please give yourself the same care and attention that you give to your students. ❤️\n\nThank you for always guiding us and looking out for us. Wishing you a very Happy Teachers' Day, Arti Ma'am! 🌸❤️`
         },
         {
             name: "Nidhi Ma'am",
             nickname: "Zen Zenz 🧘",
-            subject: "Social Science",
+            subject: "Class Teacher UKG",
             img: "https://stxaviersrasepur.co.in/teachers/Nidhi.jpeg",
-            message: `Dear Nidhi Ma'am,\n\nYour calm and composed nature is truly inspiring! 🧘 You have this unique ability to bring peace to the classroom, even when things get chaotic. Your gentle approach and kind words make every student feel valued and heard. 🌸\n\nYou teach with such patience and clarity that even the most difficult topics feel manageable. Your presence itself is a lesson in grace, kindness, and composure.\n\nThank you for being the calm in our storm. Wishing you a very Happy Teachers' Day, Nidhi Ma'am! ❤️📚`
+            hasMessage: false
         },
         {
             name: "Jigyasa Miss",
             nickname: "Zen-Zb 🧘‍♀️",
-            subject: "Hindi",
+            subject: "Class Teacher UKG",
             img: "https://stxaviersrasepur.co.in/teachers/Jigyasa.jpeg",
-            message: `Dear Jigyasa Miss,\n\nYour curiosity is truly contagious! 🔥 Your name itself means "curiosity," and you live up to it in every way. You have a way of making students curious about learning, about life, and about themselves.\n\nYour teaching is filled with enthusiasm, and you always encourage us to ask questions and think deeper. You create a safe space where learning becomes exciting and meaningful.\n\nThank you for inspiring curiosity and making learning an adventure. Wishing you a very Happy Teachers' Day, Jigyasa Miss! ❤️📚`
+            hasMessage: false
         },
         {
             name: "Ankita Ma'am",
             nickname: "Busy Mode ON 📱",
-            subject: "Computer Science",
+            subject: "Class Teacher Nursery",
             img: "https://stxaviersrasepur.co.in/teachers/Ankita.jpeg",
-            message: `Dear Ankita Ma'am,\n\nYou are always on the go! 📱 Whether it's teaching, guiding, or managing multiple things at once, you handle everything with grace and efficiency. Sometimes we wonder if you have a secret power to be everywhere at once! 😂\n\nYour dedication to teaching and your ability to simplify complex computer concepts is truly impressive. You make sure every student understands, and you never leave anyone behind. Your energy and enthusiasm are infectious.\n\nThank you for always being there, even when you're "Busy Mode ON!" 😂 Wishing you a very Happy Teachers' Day, Ankita Ma'am! ❤️📚`
+            hasMessage: false
         }
     ];
 
@@ -706,18 +834,22 @@
                    <div class="teacher-img-fallback" style="display:none;">👨‍🏫</div>`
                 : `<div class="teacher-img-fallback">👨‍🏫</div>`;
 
-            const hasMessage = teacher.message && teacher.message.trim().length > 0 && !teacher.message.includes('Wishing you a very Happy Teachers\' Day');
+            let buttonHtml;
+            if (teacher.hasMessage) {
+                buttonHtml = `<button class="view-btn" onclick="openModal(${index})">📖 View Message</button>`;
+            } else {
+                buttonHtml = `
+                    <div class="no-message">❤️ Wishing you a Happy Teachers' Day from heart ❤️</div>
+                    <button class="view-btn-simple" onclick="openModal(${index})">👀 View Profile</button>
+                `;
+            }
 
             card.innerHTML = `
                 ${imgHtml}
                 <h3>${teacher.name}</h3>
                 <div class="nickname">${teacher.nickname}</div>
                 <div class="subject">${teacher.subject}</div>
-                ${hasMessage
-                    ? `<button class="view-btn" onclick="openModal(${index})">📖 View Message</button>`
-                    : `<div class="no-message">❤️ Wishing you a Happy Teachers' Day from heart ❤️</div>
-                       <button class="view-btn" onclick="openModal(${index})" style="background:linear-gradient(135deg,#667eea,#764ba2);">👀 View Profile</button>`
-                }
+                ${buttonHtml}
             `;
 
             grid.appendChild(card);
@@ -730,25 +862,29 @@
         const overlay = document.getElementById('modalOverlay');
         const body = document.getElementById('modalBody');
 
-        const hasMessage = teacher.message && teacher.message.trim().length > 0 && !teacher.message.includes('Wishing you a very Happy Teachers\' Day');
-
         const imgHtml = teacher.img
             ? `<img src="${teacher.img}" alt="${teacher.name}" class="modal-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                <div class="modal-img-fallback" style="display:none;">👨‍🏫</div>`
             : `<div class="modal-img-fallback">👨‍🏫</div>`;
 
-        const msgHtml = hasMessage
-            ? `<div class="modal-msg">${teacher.message.replace(/\n/g, '<br>')}</div>`
-            : `<div class="modal-msg" style="text-align:center;font-size:1.2rem;border-left-color:#667eea;">
-                   ❤️ Wishing you a very Happy Teachers' Day from the bottom of our hearts! ❤️<br><br>
-                   Thank you for being an amazing teacher and for all that you do. 🙏
-               </div>`;
+        let msgHtml;
+        if (teacher.hasMessage) {
+            msgHtml = `<div class="modal-msg">${teacher.message.replace(/\n/g, '<br>')}</div>`;
+        } else {
+            msgHtml = `
+                <div class="modal-msg" style="text-align:center;font-size:1.1rem;border-left-color:#667eea;">
+                    ❤️ Wishing you a very Happy Teachers' Day from the bottom of our hearts! ❤️<br><br>
+                    Thank you for being an amazing teacher and for all that you do. 🙏<br><br>
+                    <span style="color:#ffd700;">Happy Teachers' Day! 🎉📚</span>
+                </div>
+            `;
+        }
 
         body.innerHTML = `
             ${imgHtml}
             <h2>${teacher.name}</h2>
             <div class="modal-nick">${teacher.nickname}</div>
-            <p style="color:#a8d8ea;text-align:center;font-size:0.9rem;margin-bottom:15px;">${teacher.subject}</p>
+            <div class="modal-subject">${teacher.subject}</div>
             ${msgHtml}
         `;
 
@@ -766,18 +902,22 @@
         if (e.target === this) closeModal();
     });
 
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
     // ===== SURPRISE FUNCTIONS =====
     function closeSurprise() {
         document.getElementById('surprise-overlay').classList.add('hidden');
         document.getElementById('main-website').style.display = 'block';
-        // Trigger confetti effect
         launchConfetti();
     }
 
     // ===== CONFETTI =====
     function launchConfetti() {
-        const colors = ['#ff6b6b', '#ffd700', '#4ecdc4', '#ff9a76', '#a8d8ea', '#ff85a1', '#ffb347'];
-        for (let i = 0; i < 120; i++) {
+        const colors = ['#ff6b6b', '#ffd700', '#4ecdc4', '#ff9a76', '#a8d8ea', '#ff85a1', '#ffb347', '#667eea', '#764ba2'];
+        for (let i = 0; i < 150; i++) {
             const confetti = document.createElement('div');
             confetti.style.cssText = `
                 position: fixed;
@@ -785,16 +925,17 @@
                 height: ${Math.random() * 10 + 5}px;
                 background: ${colors[Math.floor(Math.random() * colors.length)]};
                 left: ${Math.random() * 100}vw;
-                top: -10px;
+                top: -15px;
                 border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
                 z-index: 99999;
                 pointer-events: none;
-                animation: confettiFall ${Math.random() * 2 + 2}s linear forwards;
-                animation-delay: ${Math.random() * 0.5}s;
+                animation: confettiFall ${Math.random() * 2.5 + 2}s linear forwards;
+                animation-delay: ${Math.random() * 0.6}s;
                 transform: rotate(${Math.random() * 360}deg);
+                opacity: 0.9;
             `;
             document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 4000);
+            setTimeout(() => confetti.remove(), 5000);
         }
     }
 
@@ -803,7 +944,7 @@
     styleSheet.textContent = `
         @keyframes confettiFall {
             0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.3); opacity: 0; }
         }
     `;
     document.head.appendChild(styleSheet);
