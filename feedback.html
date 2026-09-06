@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Teachers' Day 2026</title>
+    <style>
+        /* ===== Yeh style teri existing website se match karega ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feedback-container {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 40px 35px;
+            max-width: 650px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback-container h1 {
+            color: #ffd700;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .feedback-container .sub-heading {
+            color: #a8d8ea;
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .feedback-container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .feedback-container label {
+            display: block;
+            color: #e0e0e0;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .feedback-container label .required {
+            color: #ff6b6b;
+        }
+
+        .feedback-container input,
+        .feedback-container select,
+        .feedback-container textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .feedback-container input:focus,
+        .feedback-container select:focus,
+        .feedback-container textarea:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .feedback-container input::placeholder,
+        .feedback-container textarea::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .feedback-container select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .feedback-container textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .feedback-container .rating-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .feedback-container .rating-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 400;
+            cursor: pointer;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+            color: #a8d8ea;
+            font-size: 0.9rem;
+        }
+
+        .feedback-container .rating-group label:hover {
+            background: rgba(255,215,0,0.08);
+            border-color: rgba(255,215,0,0.2);
+        }
+
+        .feedback-container .rating-group input[type="radio"] {
+            display: none;
+        }
+
+        .feedback-container .rating-group input[type="radio"]:checked + label {
+            background: rgba(255,215,0,0.15);
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+
+        .feedback-container .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ffd700, #f7971e);
+            color: #1a1a2e;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.15);
+            margin-top: 5px;
+        }
+
+        .feedback-container .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 35px rgba(255, 215, 0, 0.25);
+        }
+
+        .feedback-container .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #a8d8ea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .feedback-container .back-link:hover {
+            color: #ffd700;
+        }
+
+        .feedback-container .success-msg {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: rgba(46, 213, 115, 0.1);
+            border: 1px solid #2ed573;
+            border-radius: 16px;
+            color: #2ed573;
+            margin-top: 15px;
+        }
+
+        .feedback-container .success-msg.show {
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .feedback-container {
+                padding: 25px 18px;
+            }
+            .feedback-container h1 {
+                font-size: 1.8rem;
+            }
+            .feedback-container .rating-group {
+                gap: 8px;
+            }
+            .feedback-container .rating-group label {
+                font-size: 0.8rem;
+                padding: 4px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h1>💬 Feedback</h1>
+        <p class="sub-heading">Apni raay humare sath share karein! ❤️</p>
+
+        <form id="feedbackForm">
+            <!-- Name -->
+            <div class="form-group">
+                <label>Your Name <span class="required">*</span></label>
+                <input type="text" id="userName" placeholder="Apna naam likhein..." required>
+            </div>
+
+            <!-- Teacher Selection -->
+            <div class="form-group">
+                <label>Kis teacher ke liye feedback dena hai? <span class="required">*</span></label>
+                <select id="teacherName" required>
+                    <option value="">-- Select Teacher --</option>
+                    <option value="Shyam Sir">Shyam Sir (Mr. Volcano)</option>
+                    <option value="Brijesh Sir">Brijesh Sir (Sultan Sir)</option>
+                    <option value="Santosh Sir">Santosh Sir (Kalidasa's Descendant)</option>
+                    <option value="Kamlesh Sir">Kamlesh Sir (Maths Katha Vachak)</option>
+                    <option value="Ajay Sir">Ajay Sir (Mountain Climber)</option>
+                    <option value="Vishal Sir">Vishal Sir (ChatGPT ke Fufa)</option>
+                    <option value="Rampravesh Sir">Rampravesh Sir (Silent Shakespeare)</option>
+                    <option value="Maya Ma'am">Maya Ma'am (Art Attack Ma'am)</option>
+                    <option value="Priyanka Ma'am">Priyanka Ma'am (Ma'am FM 24×7)</option>
+                    <option value="Khushboo Ma'am">Khushboo Ma'am (Breaking News Ma'am)</option>
+                    <option value="Seema Ma'am">Seema Ma'am (The Troubled Teacher)</option>
+                    <option value="Arti Ma'am">Arti Ma'am (Skinny Legend)</option>
+                    <option value="Nidhi Ma'am">Nidhi Ma'am (Zen Zenz)</option>
+                    <option value="Jigyasa Miss">Jigyasa Miss (Zen-Zb)</option>
+                    <option value="Ankita Ma'am">Ankita Ma'am (Busy Mode ON)</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Rating -->
+            <div class="form-group">
+                <label>Rating <span class="required">*</span></label>
+                <div class="rating-group">
+                    <input type="radio" name="rating" id="star5" value="5">
+                    <label for="star5">⭐ 5</label>
+                    
+                    <input type="radio" name="rating" id="star4" value="4">
+                    <label for="star4">⭐ 4</label>
+                    
+                    <input type="radio" name="rating" id="star3" value="3">
+                    <label for="star3">⭐ 3</label>
+                    
+                    <input type="radio" name="rating" id="star2" value="2">
+                    <label for="star2">⭐ 2</label>
+                    
+                    <input type="radio" name="rating" id="star1" value="1">
+                    <label for="star1">⭐ 1</label>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label>Your Feedback <span class="required">*</span></label>
+                <textarea id="feedbackMsg" placeholder="Apna sandesh likhein... Kya aapko pasand aaya? Kya improve karein? ❤️" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">📤 Submit Feedback</button>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+            ✅ Dhanyavaad! Aapka feedback successfully submit ho gaya! ❤️
+        </div>
+
+        <a href="https://ansh-buildnextt.github.io/teachers-day/" class="back-link">⬅️ Wapas Home Page par jayein</a>
+    </div>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get values
+            const name = document.getElementById('userName').value.trim();
+            const teacher = document.getElementById('teacherName').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const message = document.getElementById('feedbackMsg').value.trim();
+
+            // Validate
+            if (!name || !teacher || !rating || !message) {
+                alert('⚠️ Kripya sabhi fields bharein!');
+                return;
+            }
+
+            // Prepare data
+            const feedbackData = {
+                name: name,
+                teacher: teacher,
+                rating: rating.value,
+                message: message,
+                timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
+            // Save to localStorage (as a demo)
+            let allFeedback = JSON.parse(localStorage.getItem('teacherFeedback') || '[]');
+            allFeedback.push(feedbackData);
+            localStorage.setItem('teacherFeedback', JSON.stringify(allFeedback));
+
+            // Show success message
+            document.getElementById('successMsg').classList.add('show');
+            document.getElementById('feedbackForm').reset();
+
+            // Log to console (for demo)
+            console.log('Feedback Received:', feedbackData);
+            console.log('Total Feedbacks:', allFeedback.length);
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMsg').classList.remove('show');
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>
